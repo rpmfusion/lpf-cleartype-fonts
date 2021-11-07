@@ -4,7 +4,7 @@
 Summary:   Microsoft ClearType fonts for better Windows Compatibility
 Name:      %{fontname}-fonts
 Version:   1.0
-Release:   2%{?dist}
+Release:   3%{?dist}
 
 URL:       http://mscorefonts2.sourceforge.net/
 License:   non-redistributable, no modifications permitted
@@ -152,6 +152,9 @@ done
 
 
 %changelog
+* Sun Nov 07 2021 Sérgio Basto <sergio@serjux.com> - 1.0-3
+- retag it again
+
 * Fri Feb 14 2014 Alec Leamas <leamas.alec@gmail.com> - 1.0-1
 - Changed description, downplaying usefullness.
 - Lower config priority (55 -> 61).

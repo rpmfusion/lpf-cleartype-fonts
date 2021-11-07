@@ -1,6 +1,6 @@
 Name:           lpf-cleartype-fonts
 Version:        1.0
-Release:        2%{?dist}
+Release:        3%{?dist}
 Summary:        Bootstrap package building cleartype-fonts using lpf
 
 License:        MIT
@@ -57,6 +57,9 @@ cleartype-fonts non-redistributable package.
 
 
 %changelog
+* Sun Nov 07 2021 Sérgio Basto <sergio@serjux.com> - 1.0-3
+- retag it again
+
 * Fri Mar 02 2018 RPM Fusion Release Engineering <leigh123linux@googlemail.com> - 1.0-2
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_28_Mass_Rebuild
 

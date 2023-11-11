@@ -1,15 +1,104 @@
+%global debug_package %{nil}
 %global fontname cleartype
 %global fontdir %{_datadir}/fonts/%{fontname}
 
-Summary:   Microsoft ClearType fonts for better Windows Compatibility
+#%%global foundry           Microsoft
+
+%global fontlicense       non-redistributable, no modifications permitted
+%global fontlicenses      eula.txt
+
+%global fontfamily1       %{fontname} Calibri
+%global fontsummary1      %{fontname} Calibri ttf font
+%global fontpkgheader1    %{expand:
+Obsoletes: %{name}-common < 1.0-5
+}
+
+%global fonts1            CALIBR*.TTF
+%global fontconfs1        %{SOURCE10}
+%global fontdescription1  %{expand:
+%{common_description}
+Microsoft Calibri font, part of the ClearType collection made available
+in the PowerPointViewer package, still available on the Microsoft website.
+}
+
+%global fontfamily2       %{fontname} Cambria
+%global fontsummary2      %{fontname} Cambria ttf font
+%global fontpkgheader2    %{expand:
+Obsoletes: %{name}-common < 1.0-5
+}
+
+%global fonts2            CAMBRI*.TTF
+%global fontconfs2        %{SOURCE11}
+%global fontdescription2  %{expand:
+%{common_description}
+Microsoft Cambria font, part of the ClearType collection made available
+in the PowerPointViewer package, still available on the Microsoft website.
+}
+
+%global fontfamily3       %{fontname} Candara
+%global fontsummary3      %{fontname} Trebuchet ttf font
+%global fontpkgheader3    %{expand:
+Obsoletes: %{name}-common < 1.0-5
+}
+
+%global fonts3            CANDAR*.TTF
+%global fontconfs3        %{SOURCE12}
+%global fontdescription3  %{expand:
+%{common_description}
+Microsoft Candara font, part of the ClearType collection made available
+in the PowerPointViewer package, still available on the Microsoft website.
+}
+
+%global fontfamily4       %{fontname} Consolas
+%global fontsummary4      %{fontname} verdana ttf font
+%global fontpkgheader4    %{expand:
+Obsoletes: %{name}-common < 1.0-5
+}
+
+%global fonts4            CONSOL*.TTF
+%global fontconfs4        %{SOURCE13}
+%global fontdescription4  %{expand:
+%{common_description}
+Microsoft Consolas font, part of the ClearType collection made available
+in the PowerPointViewer package, still available on the Microsoft website.
+}
+
+%global fontfamily5       %{fontname} Constantia
+%global fontsummary5      %{fontname} Andale Mono ttf font
+%global fontpkgheader5    %{expand:
+Obsoletes: %{name}-common < 1.0-5
+}
+
+%global fonts5            CONSTAN*.TTF
+%global fontconfs5        %{SOURCE14}
+%global fontdescription5  %{expand:
+%{common_description}
+Microsoft Constantia font, part of the ClearType collection made available
+in the PowerPointViewer package, still available on the Microsoft website.
+}
+
+%global fontfamily6       %{fontname} Corbel
+%global fontsummary6      %{fontname} corbel ttf font
+%global fontpkgheader6    %{expand:
+Obsoletes: %{name}-common < 1.0-5
+}
+
+%global fonts6            CORBEL*.TTF
+%global fontconfs6        %{SOURCE15}
+%global fontdescription6  %{expand:
+%{common_description}
+Microsoft Corbel font, part of the ClearType collection made available
+in the PowerPointViewer package, still available on the Microsoft website.
+}
+
 Name:      %{fontname}-fonts
 Version:   1.0
-Release:   3%{?dist}
+Release:   5%{?dist}
+Summary:   Microsoft ClearType fonts for better Windows Compatibility
 
-URL:       http://mscorefonts2.sourceforge.net/
 License:   non-redistributable, no modifications permitted
+URL:       http://mscorefonts2.sourceforge.net/
 Group:     User Interface/X
-BuildArch: noarch
 Source1:   http://sourceforge.net/projects/mscorefonts2/files/cabs/PowerPointViewer.exe
 Source10:  61-%{fontname}-calibri.conf
 Source11:  61-%{fontname}-cambria.conf
@@ -29,6 +118,9 @@ Requires:  %{fontname}-corbel-fonts
 
 BuildRequires:  cabextract
 BuildRequires:  fontpackages-devel
+BuildArch: noarch
+
+%fontpkg -a
 
 %description
 Cleartype fonts made available to the public in the PowerPoint Viewer
@@ -43,115 +135,36 @@ some cases pdf files produced on Windows hosts are better rendered with
 these fonts installed.
 
 
-%package common
-Summary: Common support files
-
-%description common
-Common support files for %{fontname}-fonts packages including licenses.
-
-
-%package -n %{fontname}-calibri-fonts
-Summary:  %{fontname} Calibri ttf font
-Requires: %{name}-common = %{version}-%{release}
-
-%description -n %{fontname}-calibri-fonts
-Microsoft Calibri font, part of the ClearType collection made available
-in the PowerPointViewer package, still available on the Microsoft website.
-
-%_font_pkg -n calibri -f *-%{fontname}-calibri.conf CALIBR*.TTF
-
-
-%package -n %{fontname}-cambria-fonts
-Summary:  %{fontname} Cambria ttf font
-Requires: %{name}-common = %{version}-%{release}
-
-%description -n %{fontname}-cambria-fonts
-Microsoft Cambria font, part of the ClearType collection made available
-in the PowerPointViewer package, still available on the Microsoft website.
-
-%_font_pkg -n cambria -f *-%{fontname}-cambria.conf CAMBRI*.TTF
-
-
-%package -n %{fontname}-candara-fonts
-Summary:  %{fontname} Trebuchet ttf font
-Requires: %{name}-common = %{version}-%{release}
-
-%description -n %{fontname}-candara-fonts
-Microsoft Candara font, part of the ClearType collection made available
-in the PowerPointViewer package, still available on the Microsoft website.
-
-%_font_pkg -n candara -f *-%{fontname}-candara.conf CANDAR*.TTF
-
-
-%package -n %{fontname}-consolas-fonts
-Summary:  %{fontname} verdana ttf font
-Requires: %{name}-common = %{version}-%{release}
-
-%description -n %{fontname}-consolas-fonts
-Microsoft Consolas font, part of the ClearType collection made available
-in the PowerPointViewer package, still available on the Microsoft website.
-
-%_font_pkg -n consolas -f *-%{fontname}-consolas.conf CONSOL*.TTF
-
-
-%package -n %{fontname}-constantia-fonts
-Summary:  %{fontname} Andale Mono ttf font
-Requires: %{name}-common = %{version}-%{release}
-
-%description -n %{fontname}-constantia-fonts
-Microsoft Constantia font, part of the ClearType collection made available
-in the PowerPointViewer package, still available on the Microsoft website.
-
-%_font_pkg -n constantia -f *-%{fontname}-constantia.conf  CONSTAN*.TTF
-
-
-%package -n %{fontname}-corbel-fonts
-Summary:  %{fontname} corbel ttf font
-Requires: %{name}-common = %{version}-%{release}
-
-%description -n %{fontname}-corbel-fonts
-Microsoft Corbel font, part of the ClearType collection made available
-in the PowerPointViewer package, still available on the Microsoft website.
-
-%_font_pkg -n corbel -f *-%{fontname}-corbel.conf CORBEL*.TTF
-
-
 %prep
 %setup -cT
 cabextract %{SOURCE1}
 cabextract ppviewer.cab
 touch -r eula.txt timestamp
+iconv -f utf-16 -t utf-8 eula.txt > eula.tmp && mv -f eula.tmp eula.txt
 sed -i 's/\r//' eula.txt
-iconv -f utf-16 -t utf-8 < eula.txt > eula.tmp && mv -f eula.tmp eula.txt
 touch -r timestamp eula.txt
+
+%forgesetup -a
 
 
 %build
-
+%fontbuild -a
 
 %install
-install -d  $RPM_BUILD_ROOT/%{fontdir}
-install -m 644 -p  *.TTF $RPM_BUILD_ROOT/%{fontdir}
-install -m 0755 -d $RPM_BUILD_ROOT%{_fontconfig_templatedir} \
-    $RPM_BUILD_ROOT%{_fontconfig_confdir}
-for fontconf in \
-    %{SOURCE10} %{SOURCE11} %{SOURCE12} %{SOURCE13} %{SOURCE14} %{SOURCE15}
-do
-    install -m 0644 -p $fontconf %{buildroot}%{_fontconfig_templatedir}
-    basename=$( basename $fontconf )
-    ln -s %{_fontconfig_templatedir}/$basename \
-        %{buildroot}%{_fontconfig_confdir}/$basename
-done
+%fontinstall -a
 
+%check
+%fontcheck -a
 
-%files common
-%doc eula.txt
-
+%fontfiles -a
 
 %files
 
 
 %changelog
+* Sat Nov 11 2023 Sérgio Basto <sergio@serjux.com> - 1.0-5
+- Use fontforge and remove obsolete macros
+
 * Sun Nov 07 2021 Sérgio Basto <sergio@serjux.com> - 1.0-3
 - retag it again
 

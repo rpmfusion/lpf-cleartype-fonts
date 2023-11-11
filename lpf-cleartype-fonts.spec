@@ -1,6 +1,6 @@
 Name:           lpf-cleartype-fonts
 Version:        1.0
-Release:        4%{?dist}
+Release:        5%{?dist}
 Summary:        Bootstrap package building cleartype-fonts using lpf
 
 License:        MIT
@@ -57,6 +57,9 @@ cleartype-fonts non-redistributable package.
 
 
 %changelog
+* Sat Nov 11 2023 Sérgio Basto <sergio@serjux.com> - 1.0-5
+- Use fontforge and remove obsolete macros
+
 * Sun Feb 19 2023 Leigh Scott <leigh123linux@gmail.com> - 1.0-4
 - Bump
 
